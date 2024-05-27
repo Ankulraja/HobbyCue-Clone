@@ -29,7 +29,7 @@ const SignInPage = () => {
             on your hobbyhorse and enjoy the ride.
           </p>
         </div>
-        <div className="w-full bg-transparent lg:w-1/3 bg-white p-8 rounded-lg">
+        <div className="w-full bg-transparent lg:w-1/3  p-8 rounded-lg">
           <Signup></Signup>
         </div>
       </section>
