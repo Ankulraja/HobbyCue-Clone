@@ -73,7 +73,7 @@ const Navbar = () => {
                 type="text"
                 placeholder="Search..."
                 className={`w-full outline-none transition-all duration-300 bg-[rgb(239,235,242)] pl-10 pr-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm ${
-                  isActive ? "max-lg:w-80 " : "translate-x-40 scale-x-0"
+                  isActive ? "max-lg:w-80 " : "max-translate-x-40 max-scale-x-0  max-md:translate-x-12 max-md:scale-x-0"
                 }`}
               />
               <button
@@ -166,12 +166,15 @@ const Navbar = () => {
             >
               Hobbies
             </a>
-            <a
+            {/* <a
               href="#"
               className="text-gray-700 block px-3 py-2 rounded-md text-base font-medium"
             >
               Sign In
-            </a>
+            </a> */}
+            <button onClick={toggleHandler} className="text-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+               {matchRoute("/add-new") ? ("Logout"):("Sign In")}
+            </button>
           </div>
         </div>
       )}
