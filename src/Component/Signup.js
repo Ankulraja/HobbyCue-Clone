@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { SiFacebook } from "react-icons/si";
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [authPage, setAuthPage] = useState(true);
-  const toggleHandler =(value)=>{
+  const toggleHandler = (value) => {
     setAuthPage(value);
-  }
+  };
   return (
     <div className=" ">
       <div className="flex items-center gap-5">
-        <button onClick={()=>{toggleHandler(true)}}>
+        <button
+          onClick={() => {
+            toggleHandler(true);
+          }}
+        >
           <h2
             className={`text-2xl ${
               authPage
@@ -20,7 +25,11 @@ const Signup = () => {
             Sign In
           </h2>
         </button>
-        <button onClick={()=>{toggleHandler(false)}}>
+        <button
+          onClick={() => {
+            toggleHandler(false);
+          }}
+        >
           <h2
             className={`text-2xl ${
               !authPage
@@ -84,33 +93,42 @@ const Signup = () => {
           />
         </div>
         <div className="flex items-center justify-between">
-          {
-              authPage  ? (<label className="inline-flex items-center text-sm text-gray-700">
-                <input type="checkbox" className="form-checkbox" />
-                <span className="ml-2">Remember me</span>
-              </label>):(<div></div>)
-          }
+          {authPage ? (
+            <label className="inline-flex items-center text-sm text-gray-700">
+              <input type="checkbox" className="form-checkbox" />
+              <span className="ml-2">Remember me</span>
+            </label>
+          ) : (
+            <div></div>
+          )}
           <a
             className="inline-block align-baseline text-sm text-gray-500 hover:text-blue-800"
             href="/"
-          >{
-            !authPage ? ("password strength"):("forgot password ?")
-          }
-          
+          >
+            {!authPage ? "password strength" : "forgot password ?"}
           </a>
         </div>
-        {authPage && (<div className="text-[13px] pt-1 italic text-gray-600 text-center">
-          By continuing,you agree to our <span className="text-black font-semibold">Term and Service</span> and <span className="text-black font-semibold">privacy.</span>
-        </div>)}
-        <div className="mt-6">
-          <button
-            className={`w-full ${authPage ? ("bg-transparent text-black border border-gray-500"):("bg-purple-500 text-white")}  hover:bg-purple-600  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
-            type="button"
-          >{
-            authPage ? ("Continue"):("Agree and continue")
-          }
-          </button>
-        </div>
+        {authPage && (
+          <div className="text-[13px] pt-1 italic text-gray-600 text-center">
+            By continuing,you agree to our{" "}
+            <span className="text-black font-semibold">Term and Service</span>{" "}
+            and <span className="text-black font-semibold">privacy.</span>
+          </div>
+        )}
+        <Link to={"/add-new"}>
+          <div className="mt-6">
+            <button
+              className={`w-full ${
+                authPage
+                  ? "bg-transparent text-black border border-gray-500"
+                  : "bg-purple-500 text-white"
+              }  hover:bg-purple-600  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+              type="button"
+            >
+              {authPage ? "Continue" : "Agree and continue"}
+            </button>
+          </div>
+        </Link>
       </form>
     </div>
   );

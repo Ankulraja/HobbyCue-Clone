@@ -5,12 +5,18 @@ import { FaAngleDown } from "react-icons/fa6";
 import { IoMdStar, IoMdBookmark } from "react-icons/io";
 import { BsFillCartFill } from "react-icons/bs";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(true);
-
+  const location =useLocation();
+  const [authToggle, setAuthToggle] = useState(false);
+  const navigate=useNavigate();
+  // console.log("llll",location.pathname)
+  const matchRoute=(path)=>{
+        return path===location.pathname;
+  }
   const toggleSearch = () => {
     setIsActive(!isActive);
   };
@@ -37,7 +43,10 @@ const Navbar = () => {
       name: "Blogs",
     },
   ];
-
+  const toggleHandler =()=>{
+    authToggle ? (navigate("/add-new")) : (navigate("/"))
+    setAuthToggle(!authToggle);
+  }
   return (
     <nav className="bg-white fixed top-0 left-0 right-0 z-50 border-b shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,8 +135,9 @@ const Navbar = () => {
             <button className=" max-md:hidden text-xl text-purple-900 opacity-85 hover:text-purple-500">
               <BsFillCartFill />
             </button>
-            <button className="max-md:hidden bg-transparent text-black border border-gray-600 px-4 py-2 rounded hover:bg-purple-700 hover:text-white">
-              Sign In
+           
+            <button onClick={toggleHandler} className="max-md:hidden bg-transparent text-black border border-gray-600 px-4 py-2 rounded hover:bg-purple-700 hover:text-white">
+               {matchRoute("/add-new") ? ("Logout"):("Sign In")}
             </button>
           </div>
           <div className="-mr-2  flex items-center md:hidden">
