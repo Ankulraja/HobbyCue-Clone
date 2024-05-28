@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaSearch, FaBell } from "react-icons/fa";
 import { MdExplore } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa6";
@@ -13,10 +13,12 @@ const Navbar = () => {
   const location =useLocation();
   const [authToggle, setAuthToggle] = useState(false);
   const navigate=useNavigate();
+  const navRef=useRef();
   // console.log("llll",location.pathname)
   const matchRoute=(path)=>{
         return path===location.pathname;
   }
+  
   const toggleSearch = () => {
     setIsActive(!isActive);
   };
@@ -47,6 +49,17 @@ const Navbar = () => {
     authToggle ? (navigate("/add-new")) : (navigate("/"))
     setAuthToggle(!authToggle);
   }
+  const closeNavbar = (event)=>{
+        if(navRef.current && !navRef.current.contains(event.target)){
+          setIsOpen(false);
+        }
+  }
+  useEffect(() => {
+    document.addEventListener("mousedown", closeNavbar);
+    return () => {
+      document.removeEventListener("mousedown", closeNavbar);
+    };
+  }, []);
   return (
     <nav className="bg-white fixed top-0 left-0 right-0 z-50 border-b shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,7 +165,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden" ref={navRef}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
               href="#"
