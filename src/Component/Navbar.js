@@ -150,7 +150,7 @@ const Navbar = () => {
       </div>
       { (
         <div className={`md:hidden transition-all duration-500 absolute
-          ${!isOpen ? (""):("translate-x-32")}
+          ${isOpen ? (""):("translate-x-32")}
          bg-white px-2 right-[0%] rounded-b-lg`} ref={navRef}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
