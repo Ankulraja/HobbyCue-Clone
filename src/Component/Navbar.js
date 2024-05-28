@@ -44,12 +44,12 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", closeNavbar);
-    return () => {
-      document.removeEventListener("mousedown", closeNavbar);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", closeNavbar);
+  //   return () => {
+  //     document.removeEventListener("mousedown", closeNavbar);
+  //   };
+  // }, []);
 
   return (
     <nav className="bg-white fixed top-0 left-0 right-0 z-50 border-b shadow-lg">
@@ -148,12 +148,14 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {isOpen && (
-        <div className="md:hidden" ref={navRef}>
+      { (
+        <div className={`md:hidden transition-all duration-500 absolute
+          ${!isOpen ? (""):("translate-x-32")}
+         bg-white right-[0%] rounded-b-lg`} ref={navRef}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
               href="#"
-              className="text-gray-700 block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
             >
               Explore
             </a>
