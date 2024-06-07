@@ -56,7 +56,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between relative h-16">
           <div className="flex">
-            <div className="flex-shrink-0 flex gap-1 items-center">
+           <Link to={"/home"}>
+           <div className="flex-shrink-0 flex gap-1 items-center">
               <p className="text-5xl font-bold text-blue-500 italic">h</p>
               <div>
                 <p className="ml-2 text-blue-500 italic font-semibold text-lg">
@@ -66,7 +67,7 @@ const Navbar = () => {
                   Your Hobby, Your community
                 </p>
               </div>
-            </div>
+            </div></Link>
             <div
               className={`flex items-center max-md:absolute max-md:right-[10%] max-md:top-[50%] max-md:translate-y-[-50%] justify-end w-80 max-xl:w-60 max-lg:w-20 max-md:w-20 transition-all duration-500 mx-3 ${
                 isActive ? "rounded-md px-4 py-2" : "px-4 py-2"
@@ -92,7 +93,7 @@ const Navbar = () => {
             <div className="hidden lg:ml-2 xl:ml-20 md:gap-2 lg:gap-10 md:flex">
               <div className="flex justify-center relative group">
                 <a
-                  href="#"
+                  href="#target"
                   className="text-black gap-1 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
                 >
                   <MdExplore className="text-purple-700 text-lg" />
