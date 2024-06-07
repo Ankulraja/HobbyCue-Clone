@@ -1,0 +1,22 @@
+.user-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .user-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(255, 0, 0, 0.2), rgba(255, 165, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 128, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(75, 0, 130, 0.2), rgba(238, 130, 238, 0.2));
+    transition: left 2s ease-in-out , opacity 0.1s ease-in-out ;
+    opacity: 0;
+  }
+  
+  .user-card:hover::before {
+    left: 100%;
+    opacity: 1;
+  }
+  

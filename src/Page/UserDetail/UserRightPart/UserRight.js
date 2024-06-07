@@ -57,13 +57,13 @@ const UserList = () => {
       {loading && <div className='absolute top-[50%] -translate-x-[50%] left-[50%]'><Loader /></div>}
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">User List</h1>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded">
+        <button className="bg-blue-600 hover:bg-blue-500  text-white px-4 py-2 rounded">
           Add User
         </button>
       </div>
       <div className="mb-4 flex flex-wrap gap-2 bg-white py-3 px-2 rounded-lg">
-        <button className="bg-blue-700 text-white px-4 py-2 rounded">LIST</button>
-        <button className="bg-gray-200 px-4 py-2 rounded">GRID</button>
+        <button className="bg-blue-700 hover:bg-blue-500  text-white px-4 py-2 rounded">LIST</button>
+        <button className="bg-gray-200 hover:bg-gray-300  px-4 py-2 rounded">GRID</button>
         <div className="relative flex-grow">
           <input
             type="text"

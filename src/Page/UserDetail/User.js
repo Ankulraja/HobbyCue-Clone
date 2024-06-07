@@ -9,12 +9,12 @@ const User = () => {
   return (
     <div className="flex relative">
       <div
-        className={`w-[500px] max-lg:${sideBar ? "block" : "hidden"} lg:block z-40 bg-gray-200 h-[calc(100vh-4rem)] border border-red-700`}
+        className={`w-[500px] max-lg:${sideBar ? "block" : "hidden"} lg:block z-40 bg-gray-200 min-h-[calc(100vh-4rem)] `}
       >
         <UserLeft />
       </div>
       <div
-        className={`w-full border bg-gray-200 h-[calc(100vh-4rem)] ${sideBar && 'max-lg:hidden'}`}
+        className={`w-full  bg-gray-200 h-[calc(100vh-4rem)] ${sideBar && 'max-lg:hidden'}`}
       >
         <UserRight />
       </div>

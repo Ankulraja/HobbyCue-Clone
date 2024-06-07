@@ -12,8 +12,8 @@ const UserLeft = () => {
   console.log("............", loading, userData);
   const dispatch =useDispatch();
   return (
-    <div className="w-11/12 bg-[rgb(0,0,0)] text-white  mx-auto h-full py-10">
-      <div onClick={()=>{dispatch(setSideBar(false))}} className="absolute right-[8%] top-[2%] text-2xl"><RxCross2></RxCross2></div>
+    <div className="w-11/12 bg-[rgb(0,0,0)] text-white relative mx-auto h-full py-10">
+      <div onClick={()=>{dispatch(setSideBar(false))}} className="absolute right-[3%] top-[2%] text-2xl lg:hidden"><RxCross2></RxCross2></div>
       <div className="relative w-8/12 rounded-full mx-auto">
         <img
           className="w-full h-full rounded-full"
@@ -24,18 +24,21 @@ const UserLeft = () => {
           <MdModeEditOutline></MdModeEditOutline>
         </div>
       </div>
-      <div className="w-11/12 mx-auto text-center py-10">
+      <div className="w-11/12 mx-auto text-center py-7">
         <h2 className="font-bold text-2xl">
           {userData?.profile?.firstName + " " + userData?.profile?.lastName}
         </h2>
         <p className="text-[12px] text-gray-200">{userData?.profile?.username}</p>
       </div>
-      <div className="w-11/12 mx-auto flex py-2 items-center gap-3">
+      <div className="w-full flex justify-center items-center">
+      <button className="py-2 hover:bg-blue-500 mx-auto w-fit px-10 rounded-lg bg-blue-600 text-white">Send Message</button>
+      </div>
+
+      <div className="w-11/12 mx-auto flex pt-10 pb-2 items-center gap-3">
         <i className="text-blue-300 text-2xl">
           <MdEmail></MdEmail>
         </i>
         <p className="hover:text-blue-500"><a href={`mailto:${userData?.profile?.email}`}>{userData?.profile?.email}</a></p>
-    
       </div>
       <div className="w-11/12 mx-auto flex py-2 items-center gap-3">
         <i className="text-blue-300 text-2xl">
