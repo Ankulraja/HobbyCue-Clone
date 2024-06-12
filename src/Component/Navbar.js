@@ -76,7 +76,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className={`w-full outline-none transition-all duration-300 bg-[rgb(239,235,242)] pl-10 pr-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm ${
+                className={`w-full  outline-none transition-all duration-300 bg-[rgb(239,235,242)] pl-10 pr-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm ${
                   isActive
                     ? "max-lg:w-80"
                     : "max-translate-x-40 max-scale-x-0 max-md:translate-x-12 max-md:scale-x-0"
